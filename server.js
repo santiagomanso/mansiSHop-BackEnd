@@ -1,9 +1,13 @@
 //import (NOT ESM) express and products array
-const express = require('express')
-const products = require('./data/products')
-const dotenv = require('dotenv')
+import express from 'express'
+import dotenv from 'dotenv'
+import colors from 'colors'
+import products from './data/products.js'
+import connectDB from './config/db.js'
 
 dotenv.config()
+
+connectDB()
 
 //create server
 const app = express()
@@ -26,5 +30,8 @@ const PORT = process.env.PORT || 5000
 //stand by
 app.listen(
   PORT,
-  console.log(`Server Running in ${process.env.NODE_ENV} mode on port: ${PORT}`)
+  console.log(
+    `Server Running in ${process.env.NODE_ENV} mode on port: ${PORT}`.yellow
+      .bold
+  )
 )
