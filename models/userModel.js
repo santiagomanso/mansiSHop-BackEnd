@@ -13,7 +13,6 @@ const userSchema = mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
     },
     isAdmin: {
       type: Boolean,
@@ -26,5 +25,5 @@ const userSchema = mongoose.Schema(
   }
 )
 
-const user = mongoose.model('User', userSchema)
-export default user
+const User = mongoose.model('User', userSchema)
+export default User
